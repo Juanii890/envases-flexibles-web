@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<!--
+  Envases Flexibles S.A. — sitio institucional de una sola página.
+
+  Notas de estructura para cuando el sitio crezca a varias páginas
+  (por ejemplo, se agregue una sección "Comprar" en el futuro):
+  - El header y el footer están escritos como bloques autocontenidos,
+    fáciles de copiar a una página nueva o de convertir en un partial
+    si más adelante se usa algún generador estático simple.
+  - Cada sección tiene su propio id y su propio bloque de estilos en
+    css/style.css, así que agregar o quitar secciones no rompe el resto.
+  - Los textos NO están escritos acá: viven en i18n/es.js y se inyectan
+    con data-i18n. Ver js/i18n.js para el detalle de cómo agregar inglés.
+-->
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Envases Flexibles S.A.</title>
+    <meta
+      name="description"
+      content="Fabricación de bolsas camiseta de polietileno en Rosario, Santa Fe. Empresa familiar."
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ===================== HEADER / NAV ===================== -->
+    <header class="site-header">
+      <nav class="nav">
+        <a href="#hero" class="nav__brand">Envases Flexibles</a>
+
+        <button
+          class="nav__toggle"
+          type="button"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav__menu">
+          <li><a href="#nosotros" data-i18n="nav.nosotros">Nosotros</a></li>
+          <li><a href="#productos" data-i18n="nav.productos">Productos</a></li>
+          <li><a href="#proceso" data-i18n="nav.proceso">Proceso</a></li>
+          <li><a href="#contacto" data-i18n="nav.contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- ===================== HERO ===================== -->
+      <section id="hero" class="hero">
+        <div class="hero__content">
+          <h1 data-i18n="hero.titulo">Envases Flexibles S.A.</h1>
+          <p class="hero__subtitulo" data-i18n="hero.subtitulo">
+            Más de una generación fabricando bolsas de polietileno con calidad
+            industrial.
+          </p>
+          <a href="#contacto" class="btn btn--primary" data-i18n="hero.cta"
+            >Contactanos</a
+          >
+        </div>
+      </section>
+
+      <!-- ===================== NOSOTROS ===================== -->
+      <section id="nosotros" class="section">
+        <div class="section__container">
+          <h2 data-i18n="nosotros.titulo">Nosotros</h2>
+          <div class="nosotros__grid">
+            <div class="nosotros__texto">
+              <p data-i18n="nosotros.parrafo1">
+                Somos una empresa familiar de Rosario, Santa Fe.
+              </p>
+              <p data-i18n="nosotros.parrafo2">
+                Adaptamos nuestra operación a la normativa vigente.
+              </p>
+              <p data-i18n="nosotros.parrafo3">
+                Producto de calidad, entregas confiables.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== PRODUCTOS ===================== -->
+      <section id="productos" class="section section--alt">
+        <div class="section__container">
+          <h2 data-i18n="productos.titulo">Productos</h2>
+          <p class="section__intro" data-i18n="productos.intro">
+            Fabricamos bolsas camiseta de polietileno en distintos tamaños.
+          </p>
+
+          <!--
+            Grilla de productos: para agregar un producto nuevo en el futuro,
+            alcanza con copiar un <article class="producto-card"> y sumar sus
+            claves correspondientes en i18n/es.js (y en i18n/en.js si ya existe).
+          -->
+          <div class="productos__grid">
+            <article class="producto-card">
+              <div class="producto-card__imagen producto-card__imagen--placeholder">
+                <span>Foto pendiente</span>
+              </div>
+              <h3 data-i18n="productos.item1.nombre">Bolsa camiseta 40x50 cm</h3>
+              <p class="producto-card__dato">
+                <strong>Material:</strong>
+                <span data-i18n="productos.item1.material">Polietileno</span>
+              </p>
+              <p class="producto-card__dato" data-i18n="productos.item1.destinatario">
+                Ideal para comercios de cercanía y almacenes
+              </p>
+            </article>
+
+            <article class="producto-card">
+              <div class="producto-card__imagen producto-card__imagen--placeholder">
+                <span>Foto pendiente</span>
+              </div>
+              <h3 data-i18n="productos.item2.nombre">Bolsa camiseta 45x60 cm</h3>
+              <p class="producto-card__dato">
+                <strong>Material:</strong>
+                <span data-i18n="productos.item2.material">Polietileno</span>
+              </p>
+              <p class="producto-card__dato" data-i18n="productos.item2.destinatario">
+                Ideal para distribuidoras y mayoristas con mayor volumen
+              </p>
+            </article>
+          </div>
+
+          <p class="productos__proximamente" data-i18n="productos.proximamente">
+            Estamos ampliando nuestra línea de productos.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== PROCESO ===================== -->
+      <section id="proceso" class="section">
+        <div class="section__container">
+          <h2 data-i18n="proceso.titulo">Cómo lo hacemos</h2>
+          <p class="section__intro" data-i18n="proceso.intro">
+            Nuestro proceso de fabricación sigue cuatro etapas principales.
+          </p>
+
+          <div class="proceso__grid">
+            <div class="proceso__paso">
+              <div class="proceso__numero">1</div>
+              <h3 data-i18n="proceso.paso1.titulo">Extrusión del film</h3>
+              <p data-i18n="proceso.paso1.descripcion">
+                Transformamos la materia prima en un film continuo.
+              </p>
+            </div>
+            <div class="proceso__paso">
+              <div class="proceso__numero">2</div>
+              <h3 data-i18n="proceso.paso2.titulo">Impresión (opcional)</h3>
+              <p data-i18n="proceso.paso2.descripcion">
+                Imprimimos el film cuando el cliente lo requiere.
+              </p>
+            </div>
+            <div class="proceso__paso">
+              <div class="proceso__numero">3</div>
+              <h3 data-i18n="proceso.paso3.titulo">Sellado y corte</h3>
+              <p data-i18n="proceso.paso3.descripcion">
+                Sellamos y cortamos cada bolsa con precisión.
+              </p>
+            </div>
+            <div class="proceso__paso">
+              <div class="proceso__numero">4</div>
+              <h3 data-i18n="proceso.paso4.titulo">Control de calidad</h3>
+              <p data-i18n="proceso.paso4.descripcion">
+                Cada lote se controla antes de empaquetarse.
+              </p>
+            </div>
+          </div>
+
+          <img
+            class="proceso__imagen"
+            src="images/proceso-extrusion.jpg"
+            alt="Máquina industrial extruyendo film de polietileno"
+            loading="lazy"
+          />
+          <p class="proceso__credito">
+            Foto: Xavier von Erlach en
+            <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer"
+              >Unsplash</a
+            >
+            (imagen de referencia, no es de nuestra planta)
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== CONTACTO ===================== -->
+      <section id="contacto" class="section section--alt">
+        <div class="section__container">
+          <h2 data-i18n="contacto.titulo">Contacto</h2>
+          <p class="section__intro" data-i18n="contacto.intro">
+            Escribinos y te respondemos a la brevedad.
+          </p>
+
+          <dl class="contacto__lista">
+            <div class="contacto__item">
+              <dt data-i18n="contacto.emailLabel">Email</dt>
+              <dd>
+                <a href="mailto:envasesflexibles@gmail.com"
+                  >envasesflexibles@gmail.com</a
+                >
+              </dd>
+            </div>
+            <div class="contacto__item">
+              <dt data-i18n="contacto.telefonoLabel">Teléfono</dt>
+              <dd data-i18n="contacto.telefonoPlaceholder">
+                [TELÉFONO A COMPLETAR]
+              </dd>
+            </div>
+            <div class="contacto__item">
+              <dt data-i18n="contacto.direccionLabel">Dirección</dt>
+              <dd data-i18n="contacto.direccionPlaceholder">
+                [DIRECCIÓN A COMPLETAR]
+              </dd>
+            </div>
+            <div class="contacto__item">
+              <dt data-i18n="contacto.ubicacionLabel">Ubicación</dt>
+              <dd data-i18n="contacto.ubicacion">Rosario, Santa Fe, Argentina</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="site-footer">
+      <p data-i18n="footer.texto">Envases Flexibles S.A. — Rosario, Santa Fe.</p>
+    </footer>
+
+    <script src="i18n/es.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
