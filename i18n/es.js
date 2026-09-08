@@ -38,11 +38,16 @@ const ES = {
     intro:
       "Fabricamos bolsas camiseta de polietileno en distintos tamaños, pensadas para uso comercial intensivo.",
     item1: {
+      nombre: "Bolsa camiseta 30x40 cm",
+      material: "Polietileno",
+      destinatario: "Ideal para comercios chicos y kioscos",
+    },
+    item2: {
       nombre: "Bolsa camiseta 40x50 cm",
       material: "Polietileno",
       destinatario: "Ideal para comercios de cercanía y almacenes",
     },
-    item2: {
+    item3: {
       nombre: "Bolsa camiseta 45x60 cm",
       material: "Polietileno",
       destinatario: "Ideal para distribuidoras y mayoristas con mayor volumen",
