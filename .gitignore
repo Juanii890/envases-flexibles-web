@@ -1,0 +1,11 @@
+# Sistema operativo / editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Dependencias (por si en el futuro se agrega alguna herramienta de build)
+node_modules/
+
+# Variables de entorno / secretos (por si se agrega un formulario con API key)
+.env
+.env.local
