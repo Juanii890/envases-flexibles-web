@@ -1,0 +1,424 @@
+/* ==========================================================================
+   Envases Flexibles S.A. — hoja de estilos principal
+   Paleta: gris grafito + azul petróleo + acento verde lima apagado.
+   Enfoque mobile-first: los estilos base son para pantallas chicas,
+   y los media queries (min-width) van agregando estilos para pantallas
+   más grandes. Esto evita tener que "deshacer" estilos de desktop en mobile.
+   ========================================================================== */
+
+/* ----- Variables de color y tipografía -----
+   Centralizar los colores acá permite cambiar la paleta entera
+   editando solo estas líneas, sin tocar el resto del archivo. */
+:root {
+  --color-graphite: #2b2e33;
+  --color-graphite-light: #5c6066;
+  --color-petroleo: #0f3d3e;
+  --color-petroleo-dark: #0a2c2d;
+  --color-accent: #8fa31e;
+  --color-accent-dark: #71801a;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f4f5f6;
+  --color-border: #dcdfe2;
+  --color-white: #ffffff;
+
+  --font-base: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --container-max: 1100px;
+  --radius: 4px;
+}
+
+/* ----- Reset básico ----- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-base);
+  color: var(--color-graphite);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--color-petroleo);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+  color: var(--color-petroleo-dark);
+}
+
+/* Espacio para que el header fijo no tape el contenido al hacer scroll
+   a una sección mediante los links de anclaje. */
+section[id] {
+  scroll-margin-top: 70px;
+}
+
+/* ----- Botones ----- */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn--primary {
+  background-color: var(--color-accent);
+  color: var(--color-graphite);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-accent-dark);
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   HEADER / NAV
+   ========================================================================== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: var(--color-petroleo-dark);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.nav {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0.9rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__brand {
+  color: var(--color-white);
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+.nav__brand:hover {
+  text-decoration: none;
+}
+
+/* Botón hamburguesa: solo visible en mobile (ver media query más abajo) */
+.nav__toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.nav__toggle span {
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-white);
+  display: block;
+}
+
+.nav__menu {
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--color-petroleo-dark);
+  flex-direction: column;
+  display: none;
+}
+
+.nav__menu--open {
+  display: flex;
+}
+
+.nav__menu li {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav__menu a {
+  display: block;
+  padding: 1rem 1.25rem;
+  color: var(--color-white);
+}
+
+.nav__menu a:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .nav__toggle {
+    display: none;
+  }
+
+  .nav__menu {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    background: none;
+    gap: 0.5rem;
+  }
+
+  .nav__menu li {
+    border-top: none;
+  }
+
+  .nav__menu a {
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.hero {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 7rem 1.25rem 3rem;
+  background: linear-gradient(
+    135deg,
+    var(--color-petroleo) 0%,
+    var(--color-petroleo-dark) 100%
+  );
+  color: var(--color-white);
+}
+
+.hero__content {
+  max-width: 700px;
+}
+
+.hero h1 {
+  color: var(--color-white);
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.hero__subtitulo {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .hero h1 {
+    font-size: 3rem;
+  }
+}
+
+/* ==========================================================================
+   SECCIONES GENERALES
+   ========================================================================== */
+.section {
+  padding: 4rem 1.25rem;
+}
+
+.section--alt {
+  background-color: var(--color-bg-alt);
+}
+
+.section__container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.6rem;
+}
+
+.section h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 48px;
+  height: 3px;
+  background-color: var(--color-accent);
+}
+
+.section__intro {
+  max-width: 680px;
+  color: var(--color-graphite-light);
+  margin-bottom: 2rem;
+}
+
+/* ----- Nosotros ----- */
+.nosotros__texto p {
+  margin-bottom: 1rem;
+  max-width: 720px;
+}
+
+/* ----- Productos ----- */
+.productos__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 700px) {
+  .productos__grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+}
+
+.producto-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.producto-card__imagen {
+  width: 100%;
+  height: 160px;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+}
+
+/* Placeholder visual: se usa mientras no haya fotos reales del producto.
+   Reemplazar por <img> cuando la familia tenga fotos propias. */
+.producto-card__imagen--placeholder {
+  background-color: var(--color-bg-alt);
+  border: 1px dashed var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-graphite-light);
+  font-size: 0.85rem;
+}
+
+.producto-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.6rem;
+}
+
+.producto-card__dato {
+  font-size: 0.95rem;
+  color: var(--color-graphite-light);
+  margin-bottom: 0.3rem;
+}
+
+.productos__proximamente {
+  font-style: italic;
+  color: var(--color-graphite-light);
+}
+
+/* ----- Proceso ----- */
+.proceso__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 700px) {
+  .proceso__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.proceso__paso {
+  text-align: left;
+}
+
+.proceso__numero {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--color-petroleo);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.proceso__paso h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+}
+
+.proceso__paso p {
+  font-size: 0.95rem;
+  color: var(--color-graphite-light);
+}
+
+.proceso__imagen {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.proceso__credito {
+  font-size: 0.8rem;
+  color: var(--color-graphite-light);
+  margin-top: 0.5rem;
+}
+
+/* ----- Contacto ----- */
+.contacto__lista {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 700px) {
+  .contacto__lista {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.contacto__item dt {
+  font-weight: 700;
+  color: var(--color-petroleo-dark);
+  margin-bottom: 0.25rem;
+}
+
+.contacto__item dd a {
+  font-size: 1.05rem;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.site-footer {
+  background-color: var(--color-graphite);
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  padding: 1.5rem 1.25rem;
+  font-size: 0.9rem;
+}
