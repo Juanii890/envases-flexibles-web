@@ -224,21 +224,61 @@ section[id] {
    HERO
    ========================================================================== */
 .hero {
+  position: relative;
   min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 7rem 1.25rem 3rem;
+  color: var(--color-white);
+  overflow: hidden; /* recorta el zoom de .hero__bg para que no se salga de la sección */
+}
+
+/* Foto de fondo del hero. Va en un div aparte (no background-image directo
+   en .hero) para poder animarla con "transform: scale" sin afectar el
+   posicionamiento del texto encima. */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("../images/hero-background.jpg");
+  background-size: cover;
+  background-position: center;
+  animation: hero-zoom 25s ease-in-out infinite alternate;
+}
+
+/* Capa oscura semi-transparente sobre la foto, para que el texto blanco
+   se siga leyendo bien sin importar qué tan clara sea la imagen de fondo. */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
   background: linear-gradient(
     135deg,
-    var(--color-petroleo) 0%,
-    var(--color-petroleo-dark) 100%
+    rgba(15, 61, 62, 0.88) 0%,
+    rgba(10, 44, 45, 0.88) 100%
   );
-  color: var(--color-white);
+}
+
+@keyframes hero-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.12);
+  }
+}
+
+/* Quien prefiera menos movimiento en pantalla (configuración de accesibilidad
+   del sistema operativo) no recibe la animación. */
+@media (prefers-reduced-motion: reduce) {
+  .hero__bg {
+    animation: none;
+  }
 }
 
 .hero__content {
+  position: relative;
+  z-index: 1;
   max-width: 700px;
 }
 

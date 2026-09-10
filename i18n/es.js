@@ -19,14 +19,14 @@ const ES = {
   hero: {
     titulo: "Envases Flexibles S.A.",
     subtitulo:
-      "Más de una generación fabricando bolsas de polietileno con calidad industrial, para distribuidoras y comercios de todo el país.",
+      "Más de 40 años fabricando bolsas de polietileno con calidad industrial, para distribuidoras y comercios de todo el país.",
     cta: "Contactanos",
   },
 
   nosotros: {
     titulo: "Nosotros",
     parrafo1:
-      "Somos una empresa familiar de Rosario, Santa Fe, dedicada a la fabricación de envases flexibles de polietileno. Con años de trayectoria en el rubro, acompañamos a distribuidoras, mayoristas y comercios que necesitan bolsas confiables para su operación diaria.",
+      "Somos una empresa familiar de Rosario, Santa Fe, dedicada a la fabricación de envases flexibles de polietileno. Con más de 40 años de trayectoria en el rubro, acompañamos a distribuidoras, mayoristas y comercios que necesitan bolsas confiables para su operación diaria.",
     parrafo2:
       "Trabajamos con procesos controlados en cada etapa de producción y adaptamos nuestra operación a la normativa vigente sobre bolsas plásticas, siguiendo de cerca los cambios regulatorios en la materia.",
     parrafo3:
