@@ -202,8 +202,20 @@
             Nuestro proceso de fabricación sigue cuatro etapas principales.
           </p>
 
+          <!--
+            Cada paso tiene su propia foto de referencia (bancos gratuitos,
+            no son fotos de nuestra propia planta). Para reemplazar por una
+            foto real de la máquina correspondiente, solo hay que cambiar
+            el "src" del <img> de ese paso.
+          -->
           <div class="proceso__grid">
             <div class="proceso__paso">
+              <img
+                class="proceso__paso__imagen"
+                src="images/proceso-extrusion.jpg"
+                alt="Máquina extrusora de film de polietileno"
+                loading="lazy"
+              />
               <div class="proceso__numero">1</div>
               <h3 data-i18n="proceso.paso1.titulo">Extrusión del film</h3>
               <p data-i18n="proceso.paso1.descripcion">
@@ -211,6 +223,12 @@
               </p>
             </div>
             <div class="proceso__paso">
+              <img
+                class="proceso__paso__imagen"
+                src="images/proceso-impresion.jpg"
+                alt="Máquina de impresión con rodillos de tinta"
+                loading="lazy"
+              />
               <div class="proceso__numero">2</div>
               <h3 data-i18n="proceso.paso2.titulo">Impresión (opcional)</h3>
               <p data-i18n="proceso.paso2.descripcion">
@@ -218,6 +236,12 @@
               </p>
             </div>
             <div class="proceso__paso">
+              <img
+                class="proceso__paso__imagen"
+                src="images/proceso-sellado.jpg"
+                alt="Máquina selladora industrial"
+                loading="lazy"
+              />
               <div class="proceso__numero">3</div>
               <h3 data-i18n="proceso.paso3.titulo">Sellado y corte</h3>
               <p data-i18n="proceso.paso3.descripcion">
@@ -225,6 +249,12 @@
               </p>
             </div>
             <div class="proceso__paso">
+              <img
+                class="proceso__paso__imagen"
+                src="images/proceso-calidad.jpg"
+                alt="Línea de producción industrial automatizada"
+                loading="lazy"
+              />
               <div class="proceso__numero">4</div>
               <h3 data-i18n="proceso.paso4.titulo">Control de calidad</h3>
               <p data-i18n="proceso.paso4.descripcion">
@@ -233,18 +263,10 @@
             </div>
           </div>
 
-          <img
-            class="proceso__imagen"
-            src="images/proceso-extrusion.jpg"
-            alt="Máquina industrial extruyendo film de polietileno"
-            loading="lazy"
-          />
           <p class="proceso__credito">
-            Foto: Xavier von Erlach en
-            <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer"
-              >Unsplash</a
-            >
-            (imagen de referencia, no es de nuestra planta)
+            Fotos de referencia (no son de nuestra propia planta) vía
+            <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a>:
+            Xavier von Erlach, Aleksandr Galichkin, Zero y Homa Appliances.
           </p>
         </div>
       </section>
