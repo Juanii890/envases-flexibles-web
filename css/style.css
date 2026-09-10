@@ -72,6 +72,25 @@ section[id] {
   scroll-margin-top: 70px;
 }
 
+/* ----- Skip link (accesibilidad) -----
+   Permite saltar directo al contenido con teclado/lector de pantalla,
+   sin tener que pasar tabulando por todo el menú. Invisible hasta que
+   recibe foco (Tab apenas se carga la página). */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 200;
+  background-color: var(--color-accent);
+  color: var(--color-graphite);
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
 /* ----- Botones ----- */
 .btn {
   display: inline-block;
@@ -170,6 +189,13 @@ section[id] {
 .nav__menu a:hover {
   background-color: rgba(255, 255, 255, 0.08);
   text-decoration: none;
+}
+
+/* Se agrega con JS (ver js/main.js) al link de la sección que está
+   visible en pantalla mientras se scrollea. */
+.nav__menu a.is-active {
+  color: var(--color-accent);
+  font-weight: 700;
 }
 
 @media (min-width: 768px) {

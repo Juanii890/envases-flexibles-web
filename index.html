@@ -21,9 +21,54 @@
       name="description"
       content="Fabricación de bolsas camiseta de polietileno en Rosario, Santa Fe. Empresa familiar."
     />
+
+    <!-- Ícono de la pestaña del navegador -->
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+
+    <!-- Color de la barra del navegador en mobile (Android/Chrome) -->
+    <meta name="theme-color" content="#0f3d3e" />
+
+    <!--
+      Open Graph: controla cómo se ve el link cuando se comparte por
+      WhatsApp, Mail, redes, etc. Sin esto, se comparte como texto pelado.
+      Reemplazar "url" por el dominio definitivo si se compra uno propio.
+    -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Envases Flexibles S.A." />
+    <meta property="og:title" content="Envases Flexibles S.A. — Bolsas camiseta de polietileno" />
+    <meta
+      property="og:description"
+      content="Empresa familiar de Rosario, Santa Fe. Fabricamos bolsas camiseta de polietileno para distribuidoras, mayoristas y comercios."
+    />
+    <meta property="og:image" content="images/proceso-extrusion.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!--
+      Datos estructurados (Schema.org): le dan contexto a Google sobre qué
+      es esta empresa, para mejorar cómo aparece en resultados de búsqueda.
+      No se ve en pantalla, es solo para buscadores.
+    -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Envases Flexibles S.A.",
+        "description": "Fabricación de bolsas camiseta de polietileno para distribuidoras, mayoristas y comercios.",
+        "email": "envasesflexibles@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Rosario",
+          "addressRegion": "Santa Fe",
+          "addressCountry": "AR"
+        }
+      }
+    </script>
+
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <a href="#main" class="skip-link">Saltar al contenido</a>
+
     <!-- ===================== HEADER / NAV ===================== -->
     <header class="site-header">
       <nav class="nav">
@@ -49,7 +94,7 @@
       </nav>
     </header>
 
-    <main>
+    <main id="main">
       <!-- ===================== HERO ===================== -->
       <section id="hero" class="hero">
         <div class="hero__content">

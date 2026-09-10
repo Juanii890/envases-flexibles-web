@@ -19,5 +19,30 @@
         toggle.setAttribute("aria-expanded", "false");
       });
     });
+
+    // Resalta en el menú el link de la sección que está visible en pantalla.
+    // IntersectionObserver avisa cuando una sección entra/sale del viewport,
+    // sin tener que escuchar el evento "scroll" a mano (más prolijo y liviano).
+    const sections = document.querySelectorAll("main section[id]");
+    const navLinks = menu.querySelectorAll("a");
+
+    const setActiveLink = (id) => {
+      navLinks.forEach((link) => {
+        link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`);
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveLink(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px" } // considera "activa" la sección cuando cruza la franja media de la pantalla
+    );
+
+    sections.forEach((section) => observer.observe(section));
   });
 })();
