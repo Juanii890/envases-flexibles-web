@@ -459,13 +459,26 @@ section[id] {
 }
 
 /* ----- Contacto ----- */
+.contacto__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 800px) {
+  .contacto__grid {
+    grid-template-columns: 3fr 2fr;
+  }
+}
+
 .contacto__lista {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
+  align-content: start;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 500px) and (max-width: 799px) {
   .contacto__lista {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -479,6 +492,85 @@ section[id] {
 
 .contacto__item dd a {
   font-size: 1.05rem;
+}
+
+/* ----- Formulario de contacto ----- */
+.form {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.form h3 {
+  margin-bottom: 1.25rem;
+}
+
+.form__field {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form__field label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.form__field input,
+.form__field textarea {
+  font: inherit;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-bg);
+  color: var(--color-graphite);
+}
+
+.form__field input:focus,
+.form__field textarea:focus {
+  outline: 2px solid var(--color-petroleo);
+  outline-offset: 1px;
+}
+
+.form__field textarea {
+  resize: vertical;
+}
+
+.form .btn {
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.form .btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Campo trampa anti-spam: oculto para personas, pero sigue presente en el
+   DOM (a diferencia de display:none, esto evita que algunos lectores de
+   pantalla lo salteen de forma inconsistente, aunque acá no importa que
+   un bot lo "vea" en el código fuente, total es lo que lo delata). */
+.form__honeypot {
+  position: absolute;
+  left: -9999px;
+}
+
+.form__estado {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.form__estado--exito {
+  color: var(--color-accent-dark);
+  font-weight: 600;
+}
+
+.form__estado--error {
+  color: #b3261e;
+  font-weight: 600;
 }
 
 /* ==========================================================================

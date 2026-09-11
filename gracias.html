@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+  Página de confirmación tras enviar el formulario de contacto.
+  Netlify Forms redirige acá cuando el envío se hace sin JavaScript
+  (o si el JS de main.js no llega a interceptar el submit). Con JS
+  activado, el usuario ve el mensaje de éxito sin salir de la página
+  (ver js/main.js) y nunca llega a ver esta página.
+-->
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mensaje enviado — Envases Flexibles S.A.</title>
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+    <meta name="theme-color" content="#0f3d3e" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <a href="index.html" class="nav__brand">Envases Flexibles</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="section" style="min-height: 70vh; display: flex; align-items: center;">
+        <div class="section__container" style="text-align: center;">
+          <h1>¡Gracias por escribirnos!</h1>
+          <p class="section__intro" style="margin: 1rem auto 2rem;">
+            Recibimos tu mensaje y te vamos a responder a la brevedad.
+          </p>
+          <a href="index.html" class="btn btn--primary">Volver al sitio</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Envases Flexibles S.A. — Rosario, Santa Fe, Argentina.</p>
+    </footer>
+  </body>
+</html>

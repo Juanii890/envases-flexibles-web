@@ -279,32 +279,93 @@
             Escribinos y te respondemos a la brevedad.
           </p>
 
-          <dl class="contacto__lista">
-            <div class="contacto__item">
-              <dt data-i18n="contacto.emailLabel">Email</dt>
-              <dd>
-                <a href="mailto:envasesflexibles@gmail.com"
-                  >envasesflexibles@gmail.com</a
-                >
-              </dd>
-            </div>
-            <div class="contacto__item">
-              <dt data-i18n="contacto.telefonoLabel">Teléfono</dt>
-              <dd data-i18n="contacto.telefonoPlaceholder">
-                [TELÉFONO A COMPLETAR]
-              </dd>
-            </div>
-            <div class="contacto__item">
-              <dt data-i18n="contacto.direccionLabel">Dirección</dt>
-              <dd data-i18n="contacto.direccionPlaceholder">
-                [DIRECCIÓN A COMPLETAR]
-              </dd>
-            </div>
-            <div class="contacto__item">
-              <dt data-i18n="contacto.ubicacionLabel">Ubicación</dt>
-              <dd data-i18n="contacto.ubicacion">Rosario, Santa Fe, Argentina</dd>
-            </div>
-          </dl>
+          <div class="contacto__grid">
+            <!--
+              Formulario conectado a Netlify Forms (sin backend propio, sin
+              base de datos). Netlify detecta este <form> por su atributo
+              data-netlify="true" en el momento del deploy, así que tiene
+              que quedar escrito tal cual en el HTML (no generado por JS).
+              Los envíos quedan guardados en el panel de Netlify y pueden
+              configurarse para llegar también por mail.
+            -->
+            <form
+              class="form"
+              name="contacto"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              action="/gracias.html"
+            >
+              <h3 data-i18n="contacto.formTitulo">Envianos un mensaje</h3>
+
+              <!-- Requerido por Netlify Forms para identificar el formulario -->
+              <input type="hidden" name="form-name" value="contacto" />
+
+              <!-- Campo trampa anti-spam: invisible para personas, los bots
+                   sí lo completan y Netlify descarta ese envío. -->
+              <p class="form__honeypot">
+                <label>No completar este campo: <input name="bot-field" /></label>
+              </p>
+
+              <div class="form__field">
+                <label for="form-nombre" data-i18n="contacto.formNombreLabel">Nombre</label>
+                <input type="text" id="form-nombre" name="nombre" required />
+              </div>
+
+              <div class="form__field">
+                <label for="form-empresa" data-i18n="contacto.formEmpresaLabel">Empresa (opcional)</label>
+                <input type="text" id="form-empresa" name="empresa" />
+              </div>
+
+              <div class="form__field">
+                <label for="form-email" data-i18n="contacto.formEmailLabel">Email</label>
+                <input type="email" id="form-email" name="email" required />
+              </div>
+
+              <div class="form__field">
+                <label for="form-telefono" data-i18n="contacto.formTelefonoLabel">Teléfono (opcional)</label>
+                <input type="tel" id="form-telefono" name="telefono" />
+              </div>
+
+              <div class="form__field">
+                <label for="form-mensaje" data-i18n="contacto.formMensajeLabel">Mensaje</label>
+                <textarea id="form-mensaje" name="mensaje" rows="4" required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn--primary" data-i18n="contacto.formEnviar">
+                Enviar
+              </button>
+
+              <p class="form__estado" aria-live="polite"></p>
+            </form>
+
+            <dl class="contacto__lista">
+              <div class="contacto__item">
+                <dt data-i18n="contacto.emailLabel">Email</dt>
+                <dd>
+                  <a href="mailto:envasesflexibles@gmail.com"
+                    >envasesflexibles@gmail.com</a
+                  >
+                </dd>
+              </div>
+              <div class="contacto__item">
+                <dt data-i18n="contacto.telefonoLabel">Teléfono</dt>
+                <dd data-i18n="contacto.telefonoPlaceholder">
+                  [TELÉFONO A COMPLETAR]
+                </dd>
+              </div>
+              <div class="contacto__item">
+                <dt data-i18n="contacto.direccionLabel">Dirección</dt>
+                <dd data-i18n="contacto.direccionPlaceholder">
+                  [DIRECCIÓN A COMPLETAR]
+                </dd>
+              </div>
+              <div class="contacto__item">
+                <dt data-i18n="contacto.ubicacionLabel">Ubicación</dt>
+                <dd data-i18n="contacto.ubicacion">Rosario, Santa Fe, Argentina</dd>
+              </div>
+            </dl>
+          </div>
         </div>
       </section>
     </main>

@@ -92,6 +92,17 @@ const ES = {
     direccionPlaceholder: "[DIRECCIÓN A COMPLETAR]",
     ubicacionLabel: "Ubicación",
     ubicacion: "Rosario, Santa Fe, Argentina",
+    formTitulo: "Envianos un mensaje",
+    formNombreLabel: "Nombre",
+    formEmpresaLabel: "Empresa (opcional)",
+    formEmailLabel: "Email",
+    formTelefonoLabel: "Teléfono (opcional)",
+    formMensajeLabel: "Mensaje",
+    formEnviar: "Enviar",
+    formEnviando: "Enviando...",
+    formExito: "¡Gracias! Recibimos tu mensaje y te vamos a responder a la brevedad.",
+    formError:
+      "No pudimos enviar el mensaje. Probá de nuevo en un momento, o escribinos directo a envasesflexibles@gmail.com.",
   },
 
   footer: {

@@ -44,5 +44,47 @@
     );
 
     sections.forEach((section) => observer.observe(section));
+
+    // Envío del formulario de contacto (Netlify Forms) por AJAX, para que
+    // la persona vea el resultado sin salir de la página. Si por algo falla
+    // el fetch, no hacemos nada especial: el <form> ya tiene action="/gracias.html"
+    // como respaldo, así que igual se envía de la forma tradicional.
+    const form = document.querySelector('form[name="contacto"]');
+    if (form) {
+      const estado = form.querySelector(".form__estado");
+      const boton = form.querySelector('button[type="submit"]');
+      const textoEnviar = ES.contacto.formEnviar;
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        boton.disabled = true;
+        boton.textContent = ES.contacto.formEnviando;
+        estado.textContent = "";
+        estado.className = "form__estado";
+
+        const datos = new URLSearchParams(new FormData(form)).toString();
+
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: datos,
+        })
+          .then((response) => {
+            if (!response.ok) throw new Error("Respuesta no exitosa");
+            form.reset();
+            estado.textContent = ES.contacto.formExito;
+            estado.classList.add("form__estado--exito");
+          })
+          .catch(() => {
+            estado.textContent = ES.contacto.formError;
+            estado.classList.add("form__estado--error");
+          })
+          .finally(() => {
+            boton.disabled = false;
+            boton.textContent = textoEnviar;
+          });
+      });
+    }
   });
 })();
